@@ -1,0 +1,124 @@
+/* standard browser settings */
+* {
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+}
+
+nav {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	min-height: 8vh;
+	font-family: 'Poppins', sans-serif;
+	color: #EBEBEB;
+	background-color: #094C83;
+}
+
+.logo {
+	color: #EBEBEB;
+	text-transform: uppercase;
+	letter-spacing: 5px;
+	font-size: 20px;
+}
+
+.nav-links {
+	display: flex;
+	justify-content: space-around;
+	width: 40%;
+}
+
+.nav-links li {
+	list-style: none;
+}
+
+.nav-links a {
+	color: #EBEBEB;
+	text-decoration: none;
+	letter-spacing: 3px;
+	font-weight: bold;
+	font-size: 14px;
+}
+
+.burger {
+	display: none;
+}
+
+.burger div {
+	width: 30px;
+	height: 3px;
+	background-color: #EBEBEB;
+	margin: 5px;
+	transition: all 0.3s ease; /*set transition duration*/
+	border-radius: 1.5px;
+}
+
+/* Mobile version CSS*/
+
+@media screen and (max-width: 1024px) { /*medium screen size spacing adapter*/
+	
+	.nav-links {
+		width: 60%;
+	}
+
+@media screen and (max-width: 768px) {
+
+	body {
+		overflow-x: hidden; /*hides everything that exeed page width*/
+	}
+
+	.nav-links {
+		position: absolute;
+		top: 8vh;
+		right: 0px;
+		height: 92vh;
+		width: 50%;
+		background-color: #094C83;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		transform: translateX(100%); /*move div right (to 100% of width)*/
+		transition: transform 0.5s ease-in; /*transition timing (slow-in)*/
+	}
+
+	.nav-links li {
+		opacity: 0; /*links are hidden at first*/
+	}
+
+	.burger {
+		display: block;
+		cursor: pointer;
+	}
+
+}
+
+.nav-active {
+	transform: translateX(0%); /*move div left (from +100%(X))*/
+}
+
+/* CSS Animation */
+
+@keyframes navLinkFade {
+	from {
+		opacity: 0;
+		transform: translateX(50px);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0px);
+	}
+}
+
+/* Burger icon animation */
+
+.toggle .line1 {
+	transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.toggle .line2 {
+	opacity: 0;
+}
+
+.toggle .line3 {
+	transform: rotate(45deg) translate(-5px, -6px);
+}
